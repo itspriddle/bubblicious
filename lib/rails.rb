@@ -18,4 +18,8 @@ module Rails
   def self.none?
     environment.empty?
   end
+
+  def self.root
+    Pathname.new(File.expand_path(RAILS_ROOT))
+  end
 end
