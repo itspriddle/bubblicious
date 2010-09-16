@@ -21,4 +21,7 @@ class String
 
   alias_method :trim, :strip
 
+  def to_mac
+    hex
+  end
 end
