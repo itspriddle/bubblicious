@@ -22,4 +22,8 @@ module Rails
   def self.root
     Pathname.new(File.expand_path(RAILS_ROOT))
   end
+
+  def self.load_config(file)
+    YAML.load_file(root.join('config', file))
+  end
 end
