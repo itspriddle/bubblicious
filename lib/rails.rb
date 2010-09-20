@@ -19,11 +19,14 @@ module Rails
     environment.empty?
   end
 
-  def self.root
-    Pathname.new(File.expand_path(RAILS_ROOT))
+  # For Rails 1.x
+  unless self.respond_to? :root
+    def self.root
+      Pathname.new File.expand_path RAILS_ROOT
+    end
   end
 
   def self.load_config(file)
-    YAML.load_file(root.join('config', file))
+    YAML.load_file root.join('config', file)
   end
 end
