@@ -3,6 +3,10 @@ module Rails
     ENV['RAILS_ENV'].to_s.downcase
   end
 
+  def self.env
+    environment
+  end
+
   def self.development?
     environment == 'development'
   end
